@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 800px;
+			height: 800px;
+			border: 1px solid black;
+		}
+		 dd{
+			float: left;
+		    height: 56px;
+		    margin-top: -20px;
+		    margin-left: 134px;
+		} 
+		dt{
+			margin-top: 73px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<dl>
+			<dt>电视</dt>
+			<dd>电视1</dd>
+			<dd>电视2</dd>
+			<dd>电视3</dd>
+			<dd>电视4</dd>
+			<dd>电视5</dd>
+
+			<dt>电影</dt>
+			<dd>电影1</dd>
+			<dd>电影2</dd>
+			<dd>电影3</dd>
+			<dd>电影4</dd>
+			<dd>电影5</dd>
+			
+			<dt>小苹果</dt>
+			<dd>小苹果1</dd>
+			<dd>小苹果2</dd>
+			<dd>小苹果3</dd>
+			<dd>小苹果4</dd>
+			<dd>小苹果5</dd> 
+		</dl>
+	</div>
+</body>
+<script src="../js/jquery-1.12.4.js" ></script>
+<script src="showHide.js"></script>
+<script src="DropDown.js"></script>
+<script>
+	$('.box').on('click',function() {
+		console.log('mmm')
+	})
+	$('.box').dropdown({
+		js:true,
+		mode:'slideLeftRight',
+		delay:600,
+		eventName:'hover'
+	})
+</script>
+</html>

@@ -1,0 +1,216 @@
+;(function($){
+		function init($elem){
+			if($elem.is(':hidden')){
+				$elem.data('status','hidden')
+			}else{
+				$elem.data('status','shown')
+			}
+		};
+		function show($elem,callback){
+			if($elem.data('status')=='shown') return;
+			if($elem.data('status')=='show') return;
+			$elem.data('status','show').trigger('show');
+			callback();
+		};
+		function hide($elem,callback){
+			if($elem.data('status')=='hidden') return;
+			if($elem.data('status')=='hide') return;
+			$elem.data('status','hide').trigger('hide');
+			callback();
+		};
+	var slient={		
+		init:function($elem){
+			init($elem);
+		},
+		show:function($elem){
+			show($elem,function(){
+					$elem.show();
+					$elem.trigger('shown').data('status','shown');			
+			})	
+		},
+		hide:function($elem){
+			hide($elem,function(){
+				$elem.hide();
+				$elem.trigger('hidden').data('status','hidden');
+			});			
+		}
+	}
+	var js={
+		fade:{
+			init:function($elem){
+				js.init($elem);
+			},
+			show:function($elem){
+				js.show($elem,'fadeIn');	
+			},
+			hide:function($elem){
+				js.hide($elem,'fadeOut');
+			}
+		},
+		slideUpDown:{
+			init:function($elem){
+				js.init($elem);
+			},
+			show:function($elem){
+				js.show($elem,'slideDown');				
+			},
+			hide:function($elem){
+				js.hide($elem,'slideUp');
+			}
+		},
+		slideLeftRight:{
+			init:function($elem){
+				js._customInit($elem,{
+					width:'0px',
+					paddingLeft:'0px',
+					paddingRight:'0px',
+					borderLeft:'0px',
+					borderRight:'0px'
+				})
+			},
+			show:function($elem){
+				js._customShow($elem);	
+			},
+			hide:function($elem){
+				js._customHide($elem,{
+					width:'0px',
+					paddingLeft:'0px',
+					paddingRight:'0px',
+					borderLeft:'0px',
+					borderRight:'0px'
+				})				
+			}			
+		},
+		fadeSlideUpDown:{
+			init:function($elem){
+				js._customInit($elem,{
+						height:'0px',
+						paddingTop:'0px',
+						paddingBottom:'0px',
+						borderTop:'0px',
+						borderBottom:'0px',
+						opacity:0
+				})
+			},
+			show:function($elem){
+				js._customShow($elem);
+			},
+			hide:function($elem){
+				js._customHide($elem,{
+						height:'0px',
+						paddingTop:'0px',
+						paddingBottom:'0px',
+						borderTop:'0px',
+						borderBottom:'0px',
+						opacity:0
+				});			
+			}			
+		},
+		fadeSlideLeftRight:{
+			init:function($elem){
+				js._customInit($elem,{
+						width:'0px',
+						paddingLeft:'0px',
+						paddingRight:'0px',
+						borderLeft:'0px',
+						borderRight:'0px',
+						opacity:0
+				})
+			},
+			show:function($elem){
+				js._customShow($elem);
+			},
+			hide:function($elem){
+				js._customHide($elem,{
+						width:'0px',
+						paddingLeft:'0px',
+						paddingRight:'0px',
+						borderLeft:'0px',
+						borderRight:'0px',
+						opacity:0
+				})			
+			}			
+		}
+	}
+	js.init=function($elem){
+		$elem.removeClass('transition');
+		init($elem);
+	};
+	js.show=function($elem,mode){
+		show($elem,function(){
+		   	$elem[mode]();
+			$elem.trigger('shown').data('status','shown');	
+		});	
+	};
+	js.hide=function($elem,mode){
+		hide($elem,function(){
+			$elem[mode]();
+			$elem.trigger('hidden').data('status','hidden');
+		});
+	};
+	js._customInit=function($elem,options){
+			$elem.removeClass('transition');
+			init($elem);
+			var styles={};
+			for(key in options){
+				styles[key]=$elem.css(key);
+			}
+			$elem.data('styles',styles);
+			if($elem.is(':hidden')){
+				$elem.css(options);
+			}
+	};
+	js._customShow=function($elem){
+		show($elem,function(){
+			$elem.show();
+			$elem.stop().animate($elem.data('styles'),function(){
+				$elem.trigger('shown').data('status','shown');	
+			});
+		});	
+	};
+	js._customHide=function($elem,options){
+		hide($elem,function(){
+			$elem.stop().animate(options,function(){
+				$elem.hide();//dispaly:none;
+				$elem.trigger('hidden').data('status','hidden');
+			});
+		});			
+	}
+
+	//根据传进来的参数来获取函数执行的类型
+	function getShowHide($elem,options){
+		var showHideFn=null;
+		if(options.js){
+			showHideFn=js[options.mode];
+		}else{
+			showHideFn=slient;
+		};
+		//统一初始化
+		showHideFn.init($elem);
+		return {
+			show:showHideFn.show,
+			hide:showHideFn.hide
+		}
+	};
+	$.fn.extend({
+		showHide:function(options){
+			var DEFAULTS={
+				js:true,
+				mode:'fade'
+			};
+			this.each(function(){
+				var $elem=$(this);			
+				var mode=$elem.data('mode');
+				if(!mode){
+					options=$.extend(DEFAULTS,options);
+					mode=getShowHide($elem,options);
+					$elem.data('mode',mode);
+				}
+				if(typeof mode[options] == 'function'){
+					mode[options]($elem);
+				}
+			});
+			return this;
+		}
+	})
+})(jQuery)

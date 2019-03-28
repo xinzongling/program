@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素进入可视区的判断</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			background: pink;
+		}
+		.floor{
+			width: 1200px;
+			height: 1000px;
+			background: yellow;
+			margin-top: 20px;
+			margin-left: 100px;	
+			font-size: 24px;	
+		}
+	</style>
+</head>
+<body>
+	<div class="box">我是div</div>
+	<div class="floor">0</div>
+	<div class="floor">1</div>
+	<div class="floor">2</div>
+	<div class="floor">3</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*
+	console.log($(window).width());
+	console.log($(window).height());
+	console.log($(window).scrollTop());
+	console.log($('.floor').offset().top);
+	*/
+	var $win=$(window);
+	var $doc=$(document);
+	function isVisiable($elem){
+		return ($win.scrollTop()+$win.height()>$elem.offset().top)&&
+		($win.scrollTop()<$elem.offset().top+$elem.height());
+	};
+	var $floor=$('.floor');
+	$doc.on('floor-show',function(err,index,elem){
+		console.log(index,elem);
+	});
+	function timeToShow(){
+		$floor.each(function(index,elem){
+		//console.log(index,elem);
+		//index,每个Floor对应的索引，elem：每个floor的DOM节点。
+		//如果进入可视区，打印每一层的楼层号
+			if(isVisiable($(elem))){
+				//console.log(index);
+				$doc.trigger('floor-show',[index,elem]);
+			};
+		});	
+	};
+	$win.on('scroll resize load',function(){
+		clearTimeout($floor.floorShowTimer);
+		$floor.floorShowTimer=setTimeout(timeToShow,300)
+	});
+
+</script>
+</html>

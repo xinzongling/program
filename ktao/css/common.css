@@ -1,0 +1,43 @@
+
+
+body{
+	font-size: 12px;
+	color: gray;
+}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/*链接*/
+a{	
+	color: gray;;
+	text-decoration: none;
+}
+a.link:hover{
+	color: red;
+}
+
+/*浮动*/
+.cl{
+	float: left;
+}
+.cr{
+	float: right;
+}
+
+/*清除浮动*/
+.clearfix:after{
+	clear: both;
+	content: '';
+	display: block;
+	height: 0;
+	visibility: none;
+}
+.clearfix{
+	*zoom: 1;
+}
+/*过度*/
+[class*="-active"] .dropdown-arrow{
+ transition: all 0.5s;
+}

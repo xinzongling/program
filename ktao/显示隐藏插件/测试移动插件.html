@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动元素</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 120px;
+			height: 60px;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 50px;
+			top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<button>移动</button>
+	<button>复原</button>
+	<div class="box"></div>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="移动元素-插件封装.js"></script>
+<script>
+	var $box=$('.box');
+	$box.move({Js:false});
+	$('button').eq(0).on('click',function(){
+		$box.move('x',400);
+	});
+	$('button').eq(1).on('click',function(){
+		$box.move('x',50);
+	});
+</script>
+</html>

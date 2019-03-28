@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动元素</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 120px;
+			height: 60px;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 50px;
+			top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<button>移动</button>
+	<button>复原</button>
+	<div class="box transition"></div>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	function init($elem){
+		this.$elem=$elem;
+		this.$elem.removeClass('transition');
+		this.$elemLeft=parseFloat(this.$elem.css('left'));
+		this.$elemTop=parseFloat(this.$elem.css('top'));
+	};
+	function to(x,y,callBack){
+		if(this.$elemLeft==x&&this.$elemTop==y) return;
+		if(x&&!y){
+			y==this.$elemTop;
+		};
+		if(!x&&y){
+			x==this.$elemLeft;
+		};
+		callBack();
+		this.$elemLeft=x;
+		this.$elemTop=y;
+	};
+	
+	function Slient($elem){
+		init.call(this,$elem);
+	};
+	Slient.prototype={
+		constructor:Slient,
+		to:function(x,y){
+			to.call(this,x,y,function(){
+				this.$elem.trigger('move');
+				this.$elem.css({
+					left:x,
+					top:y
+				});
+				this.$elem.trigger('moved');				
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	};
+	function Js($elem){
+		init.call(this,$elem);
+	};
+	Js.prototype={
+		constructor:Js,
+		to:function(x,y){
+			to.call(this,x,y,function(){
+				this.$elem.trigger('move');
+				this.$elem.stop().animate({
+					left:x,
+					top:y
+				});
+				this.$elem.trigger('moved');				
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	};
+	var $elem=$('.box');
+	$elem.on('move',function(){
+		console.log('move...')
+	});
+	$elem.on('moved',function(){
+		console.log('moved...')
+	});
+	var Slient=new Slient($elem);
+	$('button').eq(0).on('click',function(){
+		Slient.to(500,800);
+	});
+	$('button').eq(1).on('click',function(){
+		Slient.to(50,150);
+	});
+</script>
+</html>

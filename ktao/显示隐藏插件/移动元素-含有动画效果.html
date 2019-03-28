@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动元素</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 120px;
+			height: 60px;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 50px;
+			top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<button>移动</button>
+	<button>复原</button>
+	<div class="box"></div>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	function Move($elem){
+		this.$elem=$elem;
+		this.init();
+	};
+	Move.prototype={
+		constructor:Move,
+		init:function(){
+			this.$elemLeft=parseFloat(this.$elem.css('left'));
+			this.$elemTop=parseFloat(this.$elem.css('top'));
+		},
+		to:function(x,y){
+			if(this.$elemLeft==x&&this.$elemTop==y) return;
+
+			if(x&&!y){
+				y==this.$elemTop;
+			};
+			if(!x&&y){
+				x==this.$elemLeft;
+			};
+			console.log('move...')
+			this.$elem.stop().animate({
+				left:x,
+				top:y
+			});
+			this.$elemLeft=x;
+			this.$elemTop=y;
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	};
+	var $box=$('.box');
+	var move=new Move($box);
+	$('button').eq(0).on('click',function(){
+		move.x(500);
+	});
+	$('button').eq(1).on('click',function(){
+		move.x(50);
+	});
+</script>
+</html>

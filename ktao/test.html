@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li><a href="#">aaa</a></li>
+		</ul>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	console.log($('.box').is(':hidden'))
+	$('.box').on('shown',function(){
+		console.log('shown...')
+	});
+	var $elem=$('.box').find('ul  a');
+	console.log($elem)
+</script>
+</html>

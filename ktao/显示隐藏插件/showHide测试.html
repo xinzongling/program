@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	button{
+		width: 120px;
+		height: 80px;
+	}
+	.box{
+		width: 200px;
+		height: 200px;
+		background: red;
+		display: none;
+		border: 20px solid pink;
+		padding-top:10px;
+		padding-bottom: 20px; 
+	}
+	.transition{
+		transition: all 10s;
+	}
+</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div class="transition box"><!--注意：每个页面的id值唯一-->
+		我是一个盒子
+	</div>
+	<div class="transition box">
+		我是一个盒子
+	</div>
+	<p>我是段落</p>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="showHide.js"></script>
+<script>
+	var $elem=$('.box');
+	$elem.showHide({
+		js:true,
+		mode:'slideUpDown'
+	});
+	$elem.on('show shown hide hidden',function(ev){
+		if(ev.type=='show'){
+			console.log('show....');
+		}else if(ev.type=='shown'){
+			console.log('shown....')
+		}else if(ev.type=='hide'){
+			console.log('hide...');
+		}else{
+			console.log('hidden')
+		}
+	});
+	$('button').eq(0).on('click',function(){
+		$elem.showHide('show');
+	});
+	$('button').eq(1).on('click',function(){
+		$elem.showHide('hide');
+	});
+</script>
+</html>

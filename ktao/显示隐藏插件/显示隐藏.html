@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 120px;
+			height: 80px;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			/* display: none; */
+			border: 20px solid pink;
+			padding-top:10px;
+			padding-bottom: 20px;
+		}
+		.transition{
+			transition: all 10s;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box" class="transition">
+		我是一个盒子
+	</div>
+	<div id="box" class="transition">
+		我是一个盒子
+	</div>
+	<p>我是段落</p>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	var slient={
+		init:function($elem){
+			if($elem.is(':hidden')){
+				$elem.data('status','hidden')
+			}else{
+				$elem.data('status','shown')
+			}
+		},
+		show:function($elem){
+			if($elem.data('status')=='shown') return;
+			if($elem.data('status')=='show') return;
+			$elem.data('status','show').trigger('show');
+				$elem.show();
+				$elem.trigger('shown').data('status','shown');			
+		},
+		hide:function($elem){
+			if($elem.data('status')=='hidden') return;
+			if($elem.data('status')=='hide') return;
+			$elem.data('status','hide').trigger('hide');
+			$elem.hide();
+			$elem.trigger('hidden').data('status','hidden');
+		}
+	}
+
+	var js={
+		fade:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				}
+			},
+			show:function($elem){
+				if($elem.data('status')=='shown') return;
+				if($elem.data('status')=='show') return;
+				$elem.data('status','show').trigger('show');
+					$elem.fadeIn();
+					$elem.trigger('shown').data('status','shown');			
+			},
+			hide:function($elem){
+				if($elem.data('status')=='hidden') return;
+				if($elem.data('status')=='hide') return;
+				$elem.data('status','hide').trigger('hide');
+				$elem.fadeOut();
+				$elem.trigger('hidden').data('status','hidden');
+			}
+		},
+		slideUpDown:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				}
+			},
+			show:function($elem){
+				if($elem.data('status')=='shown') return;
+				if($elem.data('status')=='show') return;
+				$elem.data('status','show').trigger('show');
+					$elem.stop().slideDown();
+					$elem.trigger('shown').data('status','shown');			
+			},
+			hide:function($elem){
+				if($elem.data('status')=='hidden') return;
+				if($elem.data('status')=='hide') return;
+				$elem.data('status','hide').trigger('hide');
+				$elem.stop().slideUp();
+				$elem.trigger('hidden').data('status','hidden');
+			}
+		},
+		slideLeftRight:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				};
+				var styles={
+					width:$elem.css('width'),
+					paddingLeft:$elem.css('paddingLeft'),
+					paddingRight:$elem.css('paddingRight'),
+					borderLeft:$elem.css('borderLeft'),
+					borderRight:$elem.css('borderRight')
+				};
+				$elem.data('styles',styles);
+				if($elem.is(':hidden')){
+					$elem.css({
+						width:'0px',
+						paddingLeft:'0px',
+						paddingRight:'0px',
+						borderLeft:'0px',
+						borderRight:'0px'
+					})
+				}
+			},
+			show:function($elem){
+				if($elem.data('status')=='shown') return;
+				if($elem.data('status')=='show') return;
+				$elem.data('status','show').trigger('show');
+				$elem.show();
+					$elem.stop().animate($elem.data('styles'),function(){
+						$elem.trigger('shown').data('status','shown');	
+					});//animate是个异步		
+			},
+			hide:function($elem){
+				if($elem.data('status')=='hidden') return;
+				if($elem.data('status')=='hide') return;
+				$elem.data('status','hide').trigger('hide');
+				$elem.stop().animate({			//animate是个异步
+					width:'0px',
+					paddingLeft:'0px',
+					paddingRight:'0px',
+					borderLeft:'0px',
+					borderRight:'0px'
+				},function(){
+					$elem.hide();//dispaly:none;
+					$elem.trigger('hidden').data('status','hidden');
+				});				
+			}			
+		},
+		fadeSlideUpDown:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				};
+				var styles={
+					height:$elem.css('height'),
+					paddingTop:$elem.css('paddingTop'),
+					paddingBottom:$elem.css('paddingBottom'),
+					borderTop:$elem.css('borderTop'),
+					borderBottom:$elem.css('borderBottom'),
+					opacity:$elem.css('opacity')
+				};
+				$elem.data('styles',styles);
+				if($elem.is(':hidden')){
+					$elem.css({
+						height:'0px',
+						paddingTop:'0px',
+						paddingBottom:'0px',
+						borderTop:'0px',
+						borderBottom:'0px',
+						opacity:0
+					})
+				}
+			},
+			show:function($elem){
+				if($elem.data('status')=='shown') return;
+				if($elem.data('status')=='show') return;
+				$elem.data('status','show').trigger('show');
+				$elem.show();
+					$elem.stop().animate($elem.data('styles'),function(){
+						$elem.trigger('shown').data('status','shown');	
+					});//animate是个异步		
+			},
+			hide:function($elem){
+				if($elem.data('status')=='hidden') return;
+				if($elem.data('status')=='hide') return;
+				$elem.data('status','hide').trigger('hide');
+				$elem.stop().animate({			//animate是个异步
+					height:'0px',
+					paddingTop:'0px',
+					paddingBottom:'0px',
+					borderTop:'0px',
+					borderBottom:'0px',
+					opacity:0
+				},function(){
+					$elem.hide();//dispaly:none;
+					$elem.trigger('hidden').data('status','hidden');
+				});				
+			}			
+		},
+		fadeSlideLeftRight:{
+			init:function($elem){
+				$elem.removeClass('transition');
+				if($elem.is(':hidden')){
+					$elem.data('status','hidden');
+				}else{
+					$elem.data('status','shown');
+				};
+				var styles={
+					width:$elem.css('width'),
+					paddingLeft:$elem.css('paddingLeft'),
+					paddingRight:$elem.css('paddingRight'),
+					borderLeft:$elem.css('borderLeft'),
+					borderRight:$elem.css('borderRight'),
+					opacity:$elem.css('opacity')
+				};
+				$elem.data('styles',styles);
+				if($elem.is(':hidden')){
+					$elem.css({
+						width:'0px',
+						paddingLeft:'0px',
+						paddingRight:'0px',
+						borderLeft:'0px',
+						borderRight:'0px',
+						opacity:0
+					})
+				}
+			},
+			show:function($elem){
+				if($elem.data('status')=='shown') return;
+				if($elem.data('status')=='show') return;
+				$elem.data('status','show').trigger('show');
+				$elem.show();
+					$elem.stop().animate($elem.data('styles'),function(){
+						$elem.trigger('shown').data('status','shown');	
+					});//animate是个异步		
+			},
+			hide:function($elem){
+				if($elem.data('status')=='hidden') return;
+				if($elem.data('status')=='hide') return;
+				$elem.data('status','hide').trigger('hide');
+				$elem.stop().animate({			//animate是个异步
+					width:'0px',
+					paddingLeft:'0px',
+					paddingRight:'0px',
+					borderLeft:'0px',
+					borderRight:'0px',
+					opacity:0
+				},function(){
+					$elem.hide();//dispaly:none;
+					$elem.trigger('hidden').data('status','hidden');
+				});				
+			}			
+		}
+	}
+
+	var $elem=$('#box');
+	js.fade.init($elem);
+	$elem.on('show shown hide hidden',function(ev){
+		if(ev.type=='show'){
+			console.log('show....');
+		}else if(ev.type=='shown'){
+			console.log('shown....')
+		}else if(ev.type=='hide'){
+			console.log('hide...');
+		}else{
+			console.log('hidden')
+		}
+	});
+
+	$('button').eq(0).on('click',function(){
+		js.fade.show($elem);
+	});
+	$('button').eq(1).on('click',function(){
+		js.fade.hide($elem);
+	});
+</script>
+</html>
