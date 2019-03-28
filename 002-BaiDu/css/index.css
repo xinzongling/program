@@ -1,0 +1,335 @@
+.container{
+	width: 1180px;
+	height: 64px;
+	margin: 0 auto;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content: '';
+	clear: both;
+	visibility: hidden;
+	display: block;
+	height: 0;
+}
+.clearfix{
+	*zoom:1;
+}
+body{
+	overflow: hidden;
+}
+
+label{
+	font-weight: 1000;
+	color: #6c595f;
+}
+.msg{
+	font-size: 12px;
+	color: gray;
+	width: 100px;	
+}
+
+
+
+.top{
+	background: #fff;
+	padding-top: 14px;
+	box-sizing: border-box;
+	padding-bottom: 10px;
+}
+.top .container{
+	box-shadow: 0px 12px 10px #fafafa;
+}
+.top .logo{
+	float: left;
+	width: 148px;
+	height: 44px;
+	margin-right: 16px;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+.top .register{
+	float: left;
+	line-height: 34px;
+	padding-left: 16px;
+	margin-top: 20px;
+	box-sizing: border-box;
+	border-left: 1px solid gray;	
+}
+.top .register span{
+	color: #7f7f7f;
+	font-size: 20px;
+}
+.top .logo img{
+	width: 100%;
+	height: 100%;
+}
+.top .login,.top .already-register{
+	float: right;
+}
+.top .already-register{
+	margin-top: 20px;
+	margin-right: 5px;
+	font-size: 12px;
+}
+.top .login{
+	width: 64px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;	
+	background: #f7f7f7;
+	margin-top: 10px;
+	border-radius: 4px;
+	margin-right: 100px;
+	border: 1px solid gray;
+}
+.top .login a{
+	color: black;
+	font-size: 12px;
+}
+.content{
+	margin-top: 50px;
+}
+.content .form{
+	float: left;
+	width: 620px;
+	margin-left: 100px;
+}
+.content .username-box,
+.content .telephone-box,
+.content .password-box,.content .identify-box,
+.content .check-box
+{
+	position: relative;
+	width: 620px;
+	height: 38px;
+	margin-top: 20px;
+	line-height: 38px;	
+}
+.content .username-box{
+	margin-top: 0px;
+} 
+.content .identify-box{
+	margin-top: 36px;
+}
+.content .username-box input,.content .telephone-box input,.content .password-box input{
+	width: 338px;
+	height: 38px;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.content .password-box{
+	padding-left: 16px;
+	box-sizing: border-box;
+}
+.content .password-box .conditions{
+	position: relative;
+	display: inline-block;
+	width: 242px;
+	line-height: 14px;
+	border: 1px solid gray;
+	left: 386px;
+	top: -38px;	
+	color: gray;
+	padding-bottom: 10px;
+	background: #f9f9f9;
+}
+
+.content .identify-box input{
+	width: 162px;
+	height: 38px;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.content .identify-box a{
+	display: inline-block;
+	width: 154px;
+	height: 38px;
+	border: 1px solid black;
+	margin-left: 14px;
+	background: #f7f7f7;
+	border-color: gray;
+	text-align: center;
+	line-height: 38px;
+	box-sizing: border-box;
+	color: #5d6160;
+}
+.content .check-box{
+	padding-left: 30px;
+	font-size: 12px;
+	box-sizing: border-box;
+} 
+.content .check-box input{
+	vertical-align: -3px;
+}
+.content .check-box a{
+	color: #3f89ec;
+}
+.content .check-box a:hover{
+	text-decoration: underline;
+}
+.content .login-box input{
+	width: 338px;
+	height: 54px;
+	background: #3f89ec;
+	margin-top: 20px;
+	margin-left: 52px;
+	text-align: center;
+	line-height: 44px;
+	color: #fff;
+	border: none;
+	font-weight: 1000;
+	border-radius: 4px;
+	cursor: pointer;
+} 
+.content .form input{
+	position: relative;
+	border: 1px solid #dbdbdb;
+}
+.content .form .cancel{
+	position: absolute;
+	top: 10px;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(../images/icons.png) -33px -25px no-repeat;
+	cursor: pointer;
+}
+.content .form .username-box .cancel,
+.content .form .telephone-box .cancel{
+		left: 372px;
+}
+.content .form .password-box .cancel{
+	left: 355px;
+}
+.content .form .identify-box .cancel{
+	left: 192px;
+}
+.content .form .input-error{
+	outline: none;
+	border: 1px solid red;
+}
+.ok{
+	position: absolute;
+	left: 400px;
+	top: 10px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/icons.png) -80px 0px no-repeat;
+}
+.error{
+	position: absolute; 
+	left: 400px;
+	top: 0px;
+	display: inline-block;
+	height: 16px;			/*对标签限定宽和高时，英文字母水平排版，汉字垂直排版*/
+	line-height: 16px;
+	margin-top: 12px;
+	background: url(../images/icons.png) -80px -24px no-repeat;
+	padding-left: 20px;    /*要想使得span里面的内容不覆盖精灵图，可对span设置padding,不会影响精灵图的移动*/
+	box-sizing: border-box;     
+	font-size: 12px;
+	color: red;
+}
+.conditions li{
+	position: relative;
+	height: 14px;
+	line-height: 14px;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-left: 18px;
+}
+.pwd-checkList-item{
+	height: 8px;
+	background: url(../images/icons.png) -88px -116px no-repeat;
+	padding-left: 20px; 
+}
+.pwd-checkList-item-error{
+	position: relative; 
+	height: 14px;
+	padding-left: 14px;
+	box-sizing: border-box; 
+	background: url(../images/icons.png) -88px -150px no-repeat;
+	color: red;
+}
+.pwd-checkList-item-success{
+	position: relative; 
+	height: 14px;
+	padding-left: 14px;
+	box-sizing: border-box; 
+	background: url(../images/icons.png) -86px -134px no-repeat;
+}
+.tiptext{
+	display: inline-block;
+	font-size: 12px;
+	color: gray;
+	height: 38px;
+	line-height: 14px;
+}
+.content .form input:focus{
+	border-color: #488ee7;
+	outline: none;
+}
+.content .form .cancel:hover{
+	background: url(../images/icons.png) -50px -25px no-repeat;
+} 
+
+.content .register{
+	float: right;
+	width: 280px;
+	height: 416px;
+	background: #f6fbff;
+	border: 1px solid #3f89ec;
+	margin-right: 100px;
+}
+.content .register .top{
+	width: 268px;
+	height: 48px;
+	margin: 0 auto;
+	background: #f6fbff;
+	border-bottom: 1px solid gray;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.content .register .top i{
+	color: #609bd7;
+	font-size: 26px;
+}
+.content .register .bottom p{
+	margin-left: 20px;
+}
+.content .register .bottom p:nth-child(1){
+	margin-top: 22px;
+	color: gray;
+}
+.content .register .bottom p:nth-child(2),
+.content .register .bottom p:nth-child(4){
+	color: #ff6700;
+	font-weight: 1000;
+}
+.content .register .bottom p:nth-child(3){
+	margin-top: 20px;
+}
+.content .register .bottom p:nth-child(1),
+.content .register .bottom p:nth-child(3),
+.content .register .bottom p:nth-child(5){
+	font-size: 12px;
+}
+.content .register .bottom img{
+	width: 174px;
+	height: 174px;
+	margin: 12px 54px;
+}
+.content .register .bottom .scan{
+	text-align: center;
+}
+.end{
+	padding-top: 66px;
+	box-sizing: border-box;
+	text-align: center;
+	color: #8681c1;
+	font-size: 12px;
+}
