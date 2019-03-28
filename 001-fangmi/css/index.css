@@ -1,0 +1,1308 @@
+/*公共样式*/
+
+/*产品上方的旗帜*/
+.flag-down,.flag-new{
+	position: absolute;
+	width: 60px;
+	height: 20px;
+	color:#fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	top: 0;
+	left: 87px;
+}
+.flag-down{
+	background: #e53a36;
+}
+.flag-new{
+	background: #83c44e;
+}
+/*每个产品上的动画*/
+.animation{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 0px;
+	background: #ff6700;
+	color: #fff;
+	font-size: 12px;
+	box-sizing: border-box;       /*如果对animation使用padding,则height会失效，其内部的元素可用margin*/
+	overflow: hidden;
+	transition: all 0.5s;
+}
+.animation p{
+	width: 180px;
+	margin-top: 12px;
+	margin-left: 20px;
+}
+.main .vedio .content li:hover{
+	transform: translateY(-4px);
+	box-shadow: 18px 18px 30px #e4e9e3; 
+}
+/*每个产品内部具体的描述*/
+.main .phone .product .col2 li img,
+.main .elect .product .col2 li img
+{
+	width: 138px;
+	height: 138px;
+	margin: 32px 0 0 52px;
+}
+.main .phone .product .col2 li .name,
+.main .elect .product .col2 li .name
+{
+	height: 14px;
+	font-size: 14px;
+	margin-top: 30px;
+	text-align: center;
+}
+.main  .phone .product .col2 li .des,
+.main  .elect .product .col2 li .des
+{
+	width: 188px;
+	height: 10px;
+	font-size: 10px;
+	text-align: center;
+	color: #b0b0b0;
+	margin: 10px 0 0 16px;
+}
+.main .phone .product .col2 li .price,
+.main .elect .product .col2 li .price
+{
+	width: 98px;
+	margin: 17px auto;
+	text-align: center;
+}
+.main .phone .product .col2 li .price strong,
+.main .elect .product .col2 li .price strong
+{
+	font-size: 14px;
+	color: #ff7d8e;
+}
+.main  .phone .product .col2 li .price del,
+.main  .elect .product .col2 li .price del
+{
+	font-size: 14px;
+	color: #b0b0b0;
+	margin-left: 4px;
+}
+/*每一个产品的头部*/
+.hd{
+	padding-top: 38px;
+	height: 24px;
+	line-height: 24px;
+}
+.hd h2{
+	float: left;
+	font-size: 24px;
+	color: black;
+}
+/*每类产品右边的li*/
+.main .product .col2{
+	width: 991px;
+}
+.main .product .col2 li{
+	position: relative;
+	width: 234px;
+	height: 300px;
+	margin-left: 13px;
+	background: #ffffff;
+	transition: all 0.5s;
+}
+.main .product .col2 li:nth-child(5),
+.main .product .col2 li:nth-child(6),
+.main .product .col2 li:nth-child(7),
+.main .product .col2 li:nth-child(8)
+{
+	margin-top: 12px;
+}
+/*家电广告区*/
+ .ad{
+	margin-top: 42px;
+	height: 120px;
+}
+.ad img{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 30px;
+}
+/*每个产品hover时的的动画(合写)*/
+.main .phone .product .col1:hover,
+.main .phone .product .col2 li:hover,
+.main .elect .product .col1 img:hover,
+.main .elect .product .col2 li.pro:hover,  /*pro表示col2前7个li,top表示最后一个li的上方,同理bottom下方*/
+.main .elect .product .col2 li .top:hover,
+.main .elect .product .col2 li .bottom:hover,
+.main .vedio .content li:hover
+{
+	transform: translateY(-4px);
+	box-shadow: 18px 18px 30px #e4e9e3; 
+}
+
+/*图标加载动画*/
+.loader{
+	width: 4px;
+	height: 20px;
+	background: #ff6700;
+	margin: 0px auto;
+	position: relative;
+	animation: loading 0.3s linear 0s infinite alternate;
+	display: none;
+}
+.loader:after,.loader:before{
+	position: absolute;
+	left: 0;
+	top: 0;	
+	display: inline-block;
+	content: "";
+	width: 4px;
+	height: 20px;
+	background:#ff6700;
+}
+.loader:after{
+	margin-left: 10px;
+	transform: scale(1,0.5);
+	animation: loading 0.3s linear 0.2s infinite alternate;
+}
+.loader:before{
+	margin-left: -10px;
+	transform: scale(1,0.5);
+	animation: loading 0.3s linear 0.5s infinite alternate;
+}
+@keyframes loading{
+	from{
+		opacity: 0.5;
+		transform: scale(1,0.5);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1,1);
+	}
+}
+
+
+
+/*头部*/
+.top{
+	width: 100%;
+	background: #333;
+	height: 40px;
+	line-height: 40px;
+}
+.top .nav{
+	float: left;
+	height: 40px;
+}
+.top .nav ul li{
+	float: left;
+	text-align: center;
+}
+.top .nav ul li a,
+.top .infor ul li a 
+{
+	color: #b0b0b0;
+	font-size: 12px;
+}
+.top .nav li span,
+.top .infor li span
+{
+	color: #403b37;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.top .infor{
+	float: right;
+}
+.top .infor ul li{
+	float: left;
+	height: 40px;
+}
+.top .infor ul li a{
+	height: 40px;
+	text-align: center;
+}
+.top .infor ul li span{
+	display: inline-block;
+	height: 16px;
+}
+.top .infor ul li:nth-child(3){
+	color: #b0b0b0;
+	font-size: 12px;
+	height: 40px;
+	text-align: center;
+}
+.top .cart{
+	position: relative;
+	float: right;
+	width: 119px;
+	margin-left: 22px;
+	background: #424242;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.top .cart .cart-box{
+	height: 40px;
+	position: relative;
+	z-index: 1000;
+}
+.top .cart .cart-box a{
+	color: #b0b0b0;
+	font-size: 12px;
+}
+/*顶部购物车内容*/
+.top .cart .cart-content{
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 320px;
+	height: 0px;
+	background: #fff;
+	z-index: 999;
+	box-shadow: 0px 6px 10px rgba(0,0,0,0.25);
+	overflow: hidden;
+}
+.top .cart .cart-content span{
+	display: inline-block;
+	margin-top: 30px;
+	font-size: 12px;
+	font-weight: 400;
+	color: black;
+}
+.top .cart .cart-content .loader{
+	margin-top: 40px;
+}
+.top .cart .cart-content .empty-cart{
+	display: none;
+}
+.top .nav ul li a:hover{
+	color: #ffffff;
+}
+.top .infor ul li a:hover{
+	color: #ffffff;
+}
+.top .infor ul li:nth-child(3):hover{
+	color: #ffffff;
+}
+
+/*header*/
+.header{
+	position: relative;
+	height: 100px;
+	background: #fff;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+.header .logo{
+	float: left;
+	width: 55px;
+	height: 55px;
+	background: #ff6700;
+	background-image: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*头部中间的导航*/
+.header .nav{
+	float: left;
+	margin-left: 178px;
+	padding-top: 16px;
+} 
+.header .nav ul li{
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.header .nav ul li a{
+	font-size: 16px;
+	color: black;
+}
+.header .nav ul li a:hover{
+	color:#ff6700;
+}
+/*头部导航内容*/
+.header .header-content{
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	height: 0px;
+	z-index: 1002;
+	background: #fff;
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+	overflow: hidden;
+}
+.header .header-content li{
+	position: relative;
+	float: left;
+	width: 204px;
+	height:100%;
+	text-align: center;
+}
+.header .header-content .img-box{
+	width: 100%;
+	height: 120px;
+	margin-top: 40px;
+	border-right: 1px solid #e0e0e0;
+}
+.header .header-content .img-box img{
+	width: 80%;
+	height: 100%;
+}
+.header .header-content{
+	font-size: 12px;
+}
+.header .header-content .product-name{
+	margin-top: 15px;
+}
+.header .header-content .price{
+	color: #ff6700;
+	margin-top: 8px;
+}
+.header .header-content span{
+	position: absolute;
+	top: -1px;
+	left: 50%;
+	margin-left: -30px;
+	width: 60px;
+	height: 20px;
+	border: 1px solid #ff6700;
+	text-align: center;
+	line-height: 20px;
+	color: #ff6700;
+}
+.header .header-content .container .loader{
+	margin-top: 78px;
+	display: block;              /*注意上一个加载购物车的loading中设置了隐藏*/
+}
+/*头部右边的搜索框*/
+.header .search{
+	position: relative;
+	float: left;
+	margin-left: 84px;
+} 
+.header .search .search-input{
+	width: 246px;
+	height: 50px;
+	border: 1px solid #e0e0e0;
+	box-sizing: border-box;
+	outline: none;                    /*要想使outline生效，必须为input设置一个边框*/
+}
+.header .search .search-btn{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border: 1px solid #e0e0e0;
+	border-left: none;
+	box-sizing: border-box;
+	left: 246px;
+	top: 0;
+}
+.header .search .search-btn i{
+	font-size: 18px;
+}
+.header .search .option{
+	position: absolute;
+	top: 16px;
+	left: 32px;
+}
+.header .search .option a{
+	background: #eee;
+	color: #757575;
+	margin-left: 4px;
+	font-size: 12px;
+	padding: 3px;
+	box-sizing: border-box;
+}
+/*搜索列表*/
+.header .search .search-list{
+	position: absolute;
+	width: 246px;
+	height: 300px;
+	background: #ffffff;
+	top: 50px;
+	left: 0;
+	border: 1px solid #ff6700;
+	border-top: none;
+	box-sizing: border-box;
+	overflow: hidden;
+	display: none;
+	z-index: 999;
+}
+.header .search .search-list li a{
+	display: inline-block;
+	width: 244px;
+	height: 30px;
+}
+.header .search .search-list li a span{
+	font-size: 12px;
+}
+.header .search .search-list .left{
+	position: absolute;
+	margin-left: 16px;
+	color:#585858;
+}
+.header .search .search-list .right{
+	position: absolute;
+	color:#c7c7c7;
+	right: 18px;
+}
+/*头部右边搜索区hover时的变化*/
+.header .search .search-list li a:hover{
+	background: #fafafa;
+}
+.header .search .option a:hover{
+	background: #ff6700;
+	color: #fff;
+}
+.header .search .search-btn:hover{
+	background: #ff6700;
+	border: none;
+}
+.header .search .search-btn:hover i{
+	color:#fff;
+}
+.header .search .search-input:focus ~ .option{
+	display: none;
+}
+.header .search .search-input:focus{
+	border-color: #ff6700;
+	padding-left: 10px;
+}
+.header .search .search-input:focus + .search-btn{
+	border-color: #ff6700;
+}
+.header .search .search-input:focus ~ .search-list{
+	display: block;
+}
+/*home*/
+.home{
+	background: #fff;
+}
+.home .carousel{
+	position: relative;
+	width: 100%;
+	height: 460px;
+}
+/*轮播图左边的面板*/
+.home .carousel .carousel-left{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 233px;
+	background: #645d4a;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	z-index: 999;
+	box-sizing: border-box;
+	opacity: 0.5;
+}
+.home .carousel .carousel-left li{
+	height: 42px;
+}
+.home .carousel .carousel-left a{
+	display: inline-block;
+	width: 100%;
+	height: 42px;
+	line-height: 42px;
+	color: #fff;
+}
+.home .carousel .carousel-left a .left{
+	position: absolute;
+	font-size: 14px;
+	left: 20px;
+}
+/*轮播图里边的样式*/ 
+.home .carousel .carousel-left a .right{
+	position: absolute;
+	font-size: 14px;
+	right: 20px;
+} 
+.home .carousel .carousel-left	li.active0{ /*表示原来的样式*/
+	background: #645d4a;                     
+}
+.home .carousel .carousel-left	li.active1{
+	background: #ff6700;
+}
+/*处理面板hover时出来的内容*/
+
+.cate-content{
+	position: absolute;
+	left: 233px;
+	top: 0;
+	background: #fff;
+	min-width: 500px;
+	height: 460px;
+	z-index: 1200;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+	display: none;
+}
+.cate-content li{
+	float: left;
+}
+.cate-content a{
+	display: inline-block;
+	width: 246px;
+	height: 75px;
+	padding-top: 10px;	
+	box-sizing: border-box;
+	color: gray;
+	font-size: 14px;
+}
+.cate-content a:hover{
+	color: #ff6700;
+}
+.cate-content a img{
+	width: 50px;
+	height: 50px;
+	vertical-align: middle;
+}
+/* .home .carousel .carousel-right img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+轮播图上的按钮
+.home .carousel .carousel-right .left-btn,
+.home .carousel .carousel-right .right-btn{
+	position: absolute;
+	width: 41px;
+	height: 69px;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 69px;
+	top: 195.5px;
+	cursor: pointer;
+}
+.home .carousel .carousel-right .left-btn{
+	left: 233px;
+}
+.home .carousel .carousel-right .right-btn{
+	right: 0;
+}
+.home .carousel .carousel-right .circle-btn{
+	position: absolute;
+	right: 32px;
+	bottom: 24px;
+	cursor: pointer;
+}
+.home .carousel .carousel-right .circle-btn li{
+	float: left;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #b6ae9b;
+	border-radius: 6px;
+	margin-left: 10px;
+	background: #968b70;
+} */
+/*轮播图时的样式hover*/
+/* .home .carousel .carousel-left li:hover{
+	background: #ff6700;
+} */
+.home .carousel .carousel-right	li{
+			list-style: none;
+		}
+
+.home .carousel .carousel-right	.leftBtn,
+.home .carousel .carousel-right .rightBtn{
+			position: absolute;
+			width: 40px;
+			height: 80px;
+			font-size: 24px;
+			font-weight: 500;
+			text-align: center;
+			line-height: 80px;
+			cursor: pointer;
+			color: #fff;
+			top: 50%;
+			margin-top: -40px;
+			z-index: 100;
+		}
+.home .carousel .carousel-right	.leftBtn:hover,
+.home .carousel .carousel-right .rightBtn:hover{
+	background: #667b80;
+	color: #fff;
+}
+.home .carousel .carousel-right	.leftBtn{
+			left: 233px;
+		}
+.home .carousel .carousel-right	.rightBtn{
+			right: 0;
+		}
+.home .carousel .carousel-right	.oBottomBtn{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			z-index: 100; 
+		}
+.home .carousel .carousel-right	.oBottomBtn li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			background: red;
+			margin-left: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+.home .carousel .carousel-right	.oBottomBtn li.active{
+			background: green;
+		}
+
+ .home .carousel .carousel-right .circle-btn li:hover{
+	background: #fcf1d6;
+	border-color: #968b70;
+}
+/*轮播图下方的通道*/
+.home .channel{
+	margin-top: 14px;
+}
+.home .channel .left{
+	float: left;
+	width: 233px;
+	background: #5f5750;
+}
+.home .channel .left li{
+	position: relative;
+	float: left;
+	width: 76px;
+	height: 85px;
+	text-align: center;
+	line-height: 85px;
+}
+.home .channel .left li i{
+	display: block;
+	color: #cfcdcb;
+	font-size: 26px;
+	margin-top: 16px;
+}
+.home .channel .left li p{
+	color: #cfcdcb;
+	font-size: 12px;
+	margin-top: -30px;
+	margin-bottom: 20px;
+}
+/*通过伪类选择器为每个通道的右边和下方插入线条*/
+.home .channel .left .right-line:after,
+.home .channel .left .top-line:before
+{
+	position: absolute;
+	content: '';
+	display: inline-block;
+	background: #665e57;
+}
+.home .channel .left .right-line:after{
+	width: 1px;
+	height: 65px;
+	left: 78px;
+	top: 10px;
+}
+.home .channel .left .top-line:before{
+	width: 60px;
+	height: 1px;
+	left: 8px;
+	top: 0px;
+}
+/*通道右边的布局*/
+.home .channel .right li{
+	float: left;
+	width: 316px;
+	height: 171px;
+	margin-left: 14px;
+	transition: all 0.8s;
+}
+.home .channel .right img{
+	width: 100%;
+	height: 100%;
+}
+.home .channel .left li:hover i,
+.home .channel .left li:hover p
+{
+	color: #fff;
+}
+.home .channel .right li:hover{
+	box-shadow: 16px 10px 10px #e4e9e3;
+}
+/*闪购区*/
+
+/*闪购的头部*/
+.home .flash{
+	padding-bottom: 50px;
+}
+.home .flash .hd .ctrl{
+	float: right;
+}
+.home .flash .hd .ctrl1,.home .hd .ctrl2{
+    display: inline-block; 
+	width: 32px;
+	height: 24px;
+	border: 1px solid gray;
+	text-align: center;
+	line-height: 24px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.home .flash .hd .ctrl2{
+	margin-left: -6px;
+}
+/*闪购的产品*/
+.home .flash .product{
+	margin-top: 10px;
+}
+/*flash左边的那个li*/
+.home .flash .product .col1,
+.home .flash .product .col2,
+.home .flash .product .col2 li{
+	float: left;
+}
+.home .flash .product .col1,
+.home .flash .product .col2 li{
+	width: 234px;
+	height: 340px;
+}
+.home .flash .product .col2{
+	overflow: hidden;
+	width: 990px;
+}
+.home .flash .product .col2 .product-list{
+	width: 1984px;
+	transition: all 0.5s;
+}
+.home .flash .product .col1{
+	background: #f1eded;
+	border-top: 1px solid #ff6700;
+	box-sizing: border-box;
+}
+.home .flash .product .col1 .title{
+	margin:58px 0 0 78px;
+	font-size: 20px;
+	color: red;
+}
+.home .flash .product .col1 img{
+	width: 35px;
+	height: 58px;
+	margin:28px 0 0 96px;
+}
+.home .flash .product .col1 .des{
+	margin:30px 0 0 65px;
+	font-size: 14px;
+	color: #6f6d6d;
+}
+.home .flash .product .col1 .time{
+	margin: 32px 0 0 32px;
+}
+.home .flash .product .col1 span:nth-child(1),
+.home .flash .product .col1 span:nth-child(3),
+.home .flash .product .col1 span:nth-child(5){
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	background: #605751;
+	text-align: center;
+	line-height: 46px;
+	color: #fff;
+}
+.home .flash .product .col1 span:nth-child(2),
+.home .flash .product .col1 span:nth-child(4){
+	display: inline-block;
+	width: 18px;
+	height: 46px;
+	background: #f1eded;
+	text-align: center;
+	line-height: 46px;
+}
+/*flash右边的3个li的布局*/
+.home .flash .hd .ctrl2{
+	border-left: none;
+}
+.home .flash .product .col2 li{
+	position: relative;
+	margin-left: 14px;
+	background: #fafafa;
+	width: 234px;
+}
+.home .flash .product .col2 li img{
+	width: 120px;
+	height: 90px;
+	margin: 70px 0 0 52px;
+}
+.home .flash .product .col2 li .name{
+	width: 178px;
+	height: 18px;
+	margin: 40px 0 0 34px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #202020;
+}
+.home .flash .product .col2 li .des{
+	margin-top: 12px;
+	color: #adadad;
+	font-size: 12px;
+	text-align: center;
+}
+.home .flash .product .col2 li p{
+	margin-top: 19px;
+	font-size: 14px;
+	text-align: center;
+}
+.home .flash .product .col2 li p strong{
+	color:#ff6700;
+}
+.home .flash .product .col2 li p del{
+	color:#adadad;
+	margin-left: 8px;
+}
+/*为flash中的每个li上方加上线条*/
+.home .flash .product .col2 li:nth-child(1){
+	border-top: 1px solid orange;
+}
+.home .flash .product .col2 li:nth-child(2){
+	border-top: 1px solid green;
+}
+.home .flash .product .col2 li:nth-child(3){
+	border-top: 1px solid blue;
+}
+.home .flash .product .col2 li:nth-child(4){
+	border-top: 1px solid red;
+}
+.home .flash .product .col2 li:nth-child(5){
+	border-top: 1px solid pink;
+}
+.home .flash .product .col2 li:nth-child(6){
+	border-top: 1px solid skyblue;
+}
+.home .flash .product .col2 li:nth-child(7){
+	border-top: 1px solid tomato;
+}
+.home .flash .product .col2 li:nth-child(8){
+	border-top: 1px solid purple;
+}
+
+/*主要区*/
+.main {
+	background: #f5f5f5;
+}
+/*手机区*/
+
+/*手机的头部*/
+.main .phone .hd span{
+	float: right;
+	height: 24px;
+	line-height: 24px;
+}
+.main .phone .hd span:nth-child(1){
+	width: 20px;
+	height:20px;
+	background: #b0b0b0;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 20px;
+	vertical-align: -4px;
+	margin-left: 10px;
+	color: #fff;
+}
+.main .phone .hd span:nth-child(2){
+	color: #424242;
+}
+/*手机的产品区*/
+.main .phone .product{
+	margin-top: 20px;
+}
+.main .phone .product .col1,
+.main .phone .product .col2,
+.main .phone .product .col2 li
+{
+	float: left;
+}
+/*手机产品左边的大图*/
+.main .phone .product .col1{
+	width: 233px;
+	height: 614px;
+	transition: all 0.5s;
+}
+.main .phone .product .col1 img{
+	width: 100%;
+	height: 100%;
+}
+/*家电区*/
+/*家电的头部*/
+.main .elect .hd ul{
+	float: right;
+	height: 24px;
+	line-height: 24px;
+}
+.main .elect .hd ul li{
+	float: left;
+	margin-left: 28px;
+}
+.main .elect .hd ul li a{
+	padding-bottom: 6px;
+	box-sizing: border-box;
+}
+.main .elect .hd ul li a.active{
+	color: #ff6700;
+	border-bottom: 4px solid #ff6700;
+}
+/* .elect-option-item{
+	border-bottom: 4px solid #ff6700;
+} */
+
+.main .elect .hd ul li a{
+	color: #424242;
+}
+/*家电产品*/
+.main .elect .product{
+	margin-top: 20px;
+}
+.main .elect .product .col1,
+.main .elect .product .col2,
+.main .elect .product .col2 li
+{
+	float: left;
+}
+/*家电产品左边的2个Li*/
+.main .elect .product .col1 img{
+	transition: all 0.5s;
+}
+.main .elect .product .col1{
+	width: 233px;
+}
+.main .elect .product .col1 .top,
+.main .elect .product .col1 .bottom
+{
+	float: left;
+	width: 100%;
+	height: 300px;
+}
+.main .elect .product .col1 .bottom{
+	margin-top: 12px;
+}
+.main .elect .product .col1 img,
+.main .elect .product .col2 img{
+	width: 100%;
+	height: 100%;
+}
+/*家电产品最后一个特殊的li*/
+.main .elect .product .col2 li:nth-child(8){
+	background: #f5f5f5;
+}
+.main .elect .product .col2 .top,
+.main .elect .product .col2 .bottom
+{	position: absolute;
+	float: left;
+	width: 234px;
+	height: 142px;
+	background: #fff;
+	left: 0;
+	transition: all 0.5s;
+}
+.main .elect .product .col2 .top{
+	top: 0;
+}
+.main .elect .product .col2 .bottom{
+	bottom: 0;
+}
+.main .elect .product .col2 .top img{
+	position: absolute;
+	width: 90px;
+	height: 68px;
+	right:24px;
+	top: 4px;
+}
+.main .elect .product .col2 .top .name{
+	width: 100px;
+	margin-left: 20px;
+	margin-top: 44px;
+	color: #424242;
+}
+.main .elect .product .col2 .top .price{
+	width: 100px;
+	margin-left: 20px;
+	color: #ff6700;
+}
+.main .elect .product .col2 .bottom i{
+	position: absolute;
+	display: inline-block;
+	width: 54px;
+	height: 54px;
+	font-size: 54px;
+	text-align: center;
+	line-height: 54px;
+	color: #ff6700;
+	top: 48px;
+	right: 42px;
+}
+.main .elect .product .col2 .bottom .name{
+	width: 100px;
+	font-size: 18px;
+	margin-left: 20px;
+	margin-top: 44px;
+	color: #424242;
+}
+.main .elect .product .col2 .bottom .des{
+	font-size: 14px;
+	width: 100px;
+	margin-left: 0px;
+}
+/*家电产品上的hover*/
+/* .main .elect .hd ul li:hover a{
+	color: #ff6700;
+	text-decoration: underline;
+} */
+.main .elect .product .col2 li:hover .animation{
+	height: 80px;
+}
+/*视频区*/
+.main .vedio{
+	margin-bottom: 100px;
+	background: #f5f5f5;
+}
+/*视频的头部*/
+.main .vedio .hd span{
+	font-size: 18px;
+	color:black;
+	line-height: 28px; 
+} 
+.main .vedio .hd span{
+	float: right;
+}
+.main .vedio .hd span:nth-child(1){
+	width: 28px;
+	height:28px;
+	background: #b0b0b0;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 20px;
+	vertical-align: -4px;
+	margin-right: 20px;
+	color: #fff;
+}
+/*视频的内容区*/
+.main .vedio .content{
+	margin-top: 21px;
+}
+.main .vedio .content li{
+	position: relative;
+	float: left;
+	width: 294px;
+	height: 306px;
+	margin-left: 16px;
+	background: #fff;
+	transition: all 0.5s;
+}
+/*视频每个内容区里边的具体布局*/
+.main .vedio .content li:nth-child(1){
+	margin-left: 0px;
+}
+.main .vedio .content li img{
+	width: 294px;
+	height: 187px;
+}
+.main .vedio .content li .name{
+	margin-top: 36px;
+	font-size: 16px;
+	color: black;
+	text-align: center;
+}
+.main .vedio .content li .des{
+	margin-top: 10px;
+	font-size: 12px;
+	color: #b1b1b3;
+	text-align: center;
+}
+.main .vedio .content li .play{
+	position: absolute;
+	width: 32px;
+	height: 22px;
+	border: 2px solid #fff;
+	border-radius: 10px;
+	color: #fff;
+	left: 22px;
+	bottom: 123px;
+	text-align: center;
+	line-height: 22px;
+}
+/*视频区的hover*/
+.main .vedio .content li .name:hover{
+	color: #ff6700;
+}
+.main .vedio .content li a:nth-child(1):hover ~ .play{
+	border-color: #ff6700;
+	background: #ff6700;
+} 
+/*服务区*/
+.service{
+	margin-top: 44px;
+	background: #fff;
+}
+/*服务区的上方*/ 
+.service .top{
+	background: #fff;
+}
+.service .top li{
+	width: 244px;
+	height: 100px;
+}
+.service .top li{
+	position: relative;
+	float: left;
+	font-size: 22px;
+	text-align: center;
+}
+.service .top li span{
+	font-size: 14px;
+	line-height: 100px;
+	color:black;
+}
+.service .top li i{
+	font-size: 18px;
+	line-height: 100px;
+	color:black;
+}
+.service .top .right-line:after{
+	position: absolute;
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 24px;
+	background: black;
+	left: 240px;
+	top: 40px;
+}
+/*服务区的下方*/
+.service .bottom{
+	padding-top: 48px;
+	border-bottom: 1px solid black;
+}
+/*服务区下方的定义列表*/
+.service .bottom .link{
+	float: left;
+	display: inline-block;
+	width: 160px;
+}
+.service .bottom .link dt{
+	margin-bottom: 20px;
+}
+.service .bottom .link dd{
+	margin-top: 10px;
+}
+.service .bottom .link dd a{
+	font-size: 12px;
+	color: gray;
+}
+/*定义列表右边的联系区域*/
+.service .bottom .contact{
+	float: right;
+	/* width: 234px; */
+	margin-left: 12px;
+	width: 252px;
+	height: 121px;
+	text-align: center;
+	border-left: 1px solid black;
+	box-sizing: border-box;
+}
+.service .bottom .contact .tel{
+	color: #ff6700;
+	font-size: 24px;
+}
+.service .bottom .contact .time{
+	font-size: 12px;
+	color: gray;
+	margin-top: 4px;
+}
+.service .bottom .contact .des{
+	font-size: 12px;
+	color:gray;
+}
+.service .bottom .contact .box{
+	width: 148px;
+	height: 38px;
+	border: 1px solid #ff6700;
+	text-align: center;
+	line-height: 38px;
+	color: #ff6700;
+	margin-top: 14px;
+	margin-left: 50px;
+}
+/*服务区的hover*/
+.service .bottom .link dd a:hover{
+	color: #ff6700;
+}
+.service .bottom .contact .box:hover{
+	background: #ff6700;
+	color: #fff;
+}
+/*底部的区域*/
+.footer{
+	background: #fff;
+	padding-top: 80px;
+}
+/*底部区左边的图片*/
+.footer .links .left{
+	position: relative;
+	float: left;
+	width: 72px;
+	height: 72px;
+	margin-right: 10px;
+	background: #ff6700;
+}
+.footer .links .left img{
+	position: absolute;
+	left: 15px;
+	top: 20px;
+}
+/*底部区右边的链接*/
+.footer .links .right,
+.footer .links ul li
+{
+	float: left;
+}
+.footer .links .right ul a{
+	color: #ababab;
+	font-size: 12px;
+}
+.footer .links .right ul span{
+	margin-left: 2px;
+}
+.footer .links .right p a,
+.footer .links .right p span
+{
+	color: gray;
+	font-size: 10px;
+}
+.footer .links .right  a:hover{
+	color: #ff6700;
+}
+/*底部区的下方*/
+.footer .end{
+	height: 135px;
+}
+.footer .end .top{
+	background: #fff;
+}
+.footer .end li{
+	width: 102px;
+	height: 40px;
+	float: right;
+}
+.footer .end .bottom li{
+	margin-top: -34px;
+}
+.footer .end li img{
+	width: 100%;
+	height: 100%;
+}
+.footer .end span{
+	display: inline-block;
+	width: 338px;
+	height: 32px;
+	margin-left: 500px;
+	margin-top: 20px;
+	font-size: 18px;
+	color: gray;
+}
