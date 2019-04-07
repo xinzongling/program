@@ -1,0 +1,89 @@
+
+{% extends './layout.html' %}
+{% block title %} {{ artilce.title }} {% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/detail.css">
+	{% endblock  %}
+
+{% block content %}
+
+<div class="panel panel-default custom-panel detail-content">
+    <div class="panel-heading">
+        <h3 class="panel-title"> {{ article.title }}</h3>
+        <p class="sub-title">
+            <span class="text-muted"> {{ article.category.name }}</span>
+            <span class="text-muted"> {{ article.user.username }}</span>
+            <span class="text-muted">{{ article.createTime | date('Y年-m月-d日 H:m:s',-8*60) }}</span>
+            <span class="text-muted"><em>{{ article.click }}</em>人已阅读</span>
+        </p>
+    </div>
+    <div class="panel-body">
+        <div class="well">
+            <strong>简介</strong>{{ article.intro }}
+        </div>
+        <p>{{ article.content | safe }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    {% if userInfo._id %}
+    <div class="input-group">
+      <textarea class="form-control"  id="comment-content" cols="30" rows="3"></textarea>
+      <span class="input-group-btn">
+        <button  data-id="{{ article._id.toString() }}" class="btn  btn-primary btn-sub-comment" type="button">提交</button>
+      </span>
+    </div>
+    <p class="text-danger err"></p>
+    {% else %}
+    <div class="alert alert-info" role="alert">请登录后添加评论</div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div id="comment-wrap">
+            {% for comment in comments %}
+            <div class="panel panel-default">
+              <div class="panel-heading">{{ comment.user.username}}
+                发布于 {{ comment.createTime | date('Y年-m月-d日 H:m:s',-8*60) }}
+              </div>
+              <div class="panel-body">
+                {{ comment.content}} 
+              </div>
+            </div>
+            {% endfor %}         
+        </div>
+        <nav aria-label="Page navigation" id="comment-page" data-id="{{ article._id.toString() }}">
+          <ul class="pagination">
+            {% if pages>1 %}
+            <li>
+                <a href="javascript:;" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% for key,value in arr %}
+            {% if value ==page %}
+            <li class="active"><a href="javascript:;">{{ value }}</a></li>
+            {% else %}
+            <li><a href="javascript:;">{{ value }}</a></li>
+            {% endif %}
+            {% endfor %}
+            <li>
+                <a href="javascript:;" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>    
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+
+<script src="/static/js/detail.js"></script>
+{% endblock %}

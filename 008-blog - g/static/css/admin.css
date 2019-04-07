@@ -1,0 +1,14 @@
+.dropdown{
+  float: right;
+  margin-top: 20px;
+  margin-right: 80px;
+}
+
+#content{
+	min-height: 300px;
+}
+
+/*富文本编辑框的样式*/
+.ck-editor__editable_inline{
+	height: 200px;
+}

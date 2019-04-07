@@ -1,0 +1,59 @@
+{% extends './layout.html' %}
+
+{% block header %}
+    <h1>欢迎来到博客管理后台。。。!!!</h1>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>用户名</th>
+        <th>是否是管理员</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for key, val in users %}
+        <tr>
+	        <td>{{ val._id.toString() }}</td>
+	        <td>{{ val.username }}</td>
+	        <td>
+	        	{% if val.isAdmin %}
+	        	是
+	        	{% else %}
+	        	否
+	        	{% endif %}
+	        </td>
+      	</tr>
+		{% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% if pages >1 %}
+<nav aria-label="Page navigation" id="page">
+  <ul class="pagination">
+    <li>
+        <a href="/admin/userList?page={{page-1 }}" aria-label="Previous">
+        	<span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {% for key,value in arr %}
+    {% if value ==page %}
+    <li class="active"><a href="javascript:;">{{ value }}</a></li>
+    {% else %}
+    <li><a href="/admin/userList?page={{ value }}">{{ value }}</a></li>
+    {% endif %}
+    {% endfor %}
+    <li>
+        <a href="/admin/userList?page={{page+1 }}" aria-label="Next">
+        	<span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+  </ul>
+</nav>
+{% endif %}
+
+{% endblock %}

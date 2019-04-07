@@ -1,0 +1,24 @@
+<nav aria-label="Page navigation" id="article-page" data-id="{{ category }}">
+  <ul class="pagination">
+    {% if pages>1 %}
+    <li>
+        <a href="javascript:;" aria-label="Previous">
+        	<span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {% for key,value in arr %}
+    {% if value ==page %}
+    <li class="active"><a href="javascript:;">{{ value }}</a></li>
+    {% else %}
+    <li><a href="javascript:;">{{ value }}</a></li>
+    {% endif %}
+    {% endfor %}
+    <li>
+        <a href="javascript:;" aria-label="Next">
+        	<span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+
