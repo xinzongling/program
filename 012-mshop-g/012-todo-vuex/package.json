@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "atom": "^1.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "font-awesome": "^4.7.0",
     "swiper": "^4.5.0",
